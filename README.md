@@ -1,3 +1,134 @@
+## 🌍 Chose Your Language / Elige tu idioma:
+- [English](#english-gb)
+- [Español](#español-es)
+
+---
+
+## English GB
+
+# What is JAX?
+**JAX** is a new Python library for machine learning developed by Google, designed for high-performance numerical computation, especially in machine learning and optimization. It is an enhanced alternative to NumPy, although its API for numerical functions is based on it.
+
+The advantage of JAX is that it was conceived for both execution modes (Eager and Graph) from the beginning, avoiding the issues of its predecessors _PyTorch_ and _Tensorflow_. 
+
+JAX is widely used in neural network models, such as in libraries built on top of it, like [**Flax**](https://flax.readthedocs.io/en/latest/) and [**Haiku**](https://dm-haiku.readthedocs.io/en/latest/). 
+
+>[!NOTE]
+>💡
+>JAX might currently be the most advanced in terms of `Machine Learning` (ML) and promises to make machine learning programming more intuitive, structured, and clean. And most importantly, it can replace **Tensorflow** and **PyTorch** with significant advantages.
+
+
+# Features
+1. **Automatic Differentiation**: Efficiently computes derivatives of functions with `jax.grad()`, useful in optimization and deep learning. 🔧
+2. **Just-In-Time (JIT) Compilation**: Uses `jax.jit()` to accelerate code by compiling it with **XLA** (Accelerated Linear Algebra). ⚡
+3. **GPU/TPU Execution**:  Runs code on CPU, GPU, and TPU without modification. 💻🖥️
+4. **Automatic Vectorization**: With `jax.vmap()`, applies operations to multiple data points in parallel. 🔄
+5. **NumPy-like Operations**: Provides a very similar API to NumPy (`jax.numpy`), easing the transition. ➡️
+
+
+# Comparison: JAX vs TensorFlow vs PyTorch
+
+JAX, TensorFlow, and PyTorch are popular libraries for numerical computation and deep learning. This comparison highlights their key differences in performance, ease of use, and application.
+
+## Comparison Table
+
+| **Feature**       | **JAX** 🦎  | **TensorFlow** 🔵 | **PyTorch** 🔥 |
+|-------------------------|------------|----------------|----------------|
+| **Paradigm** | Functional, Stateless | Declarative (Graphs) | Imperative (Define-by-Run) |
+| **Automatic Differentiation** | ✅ `jax.grad()` | ✅ `tf.GradientTape()` | ✅ `torch.autograd` |
+| **JIT Compilation (Just-In-Time)** | ✅ `jax.jit()` (XLA) | ✅ `tf.function()` (XLA) | ❌ (Only in TorchScript) |
+| **Runs on GPU/TPU** | ✅ Automatic | ✅ `tf.device()` | ✅ `cuda()` |
+| **Automatic Vectorization** | ✅ `jax.vmap()` | ❌ Not native | ❌ Not native |
+| **NumPy Usage** | ✅ `jax.numpy` | ❌ Not direct | ✅ Easy conversion |
+| **Ecosystem & Pretrained Models** | ⛰️ Growing (Flax, Haiku) | 🚀 Extensive (TF Hub, Keras) | 🔥 Vast (Torch Hub) |
+| **Learning Curve** | 🟠 Medium | 🔴 High | 🟢 Low |
+
+# 🎯 Choosing the Best Option
+- **JAX**: Ideal for **numerical optimizations, advanced differentiation, and GPU/TPU computation**. Used in research. 🌐
+- **TensorFlow**: Best for **production deployment and scalable applications** en the cloud. ☁️
+- **PyTorch**: Perfect for **apid prototyping, research, and ease of use**. ⚡
+
+
+# 🌍Ecosystem
+## 📌 Libraries Built on JAX
+
+### **Deep Learning Frameworks**
+- **[Flax](https://github.com/google/flax)** 🏗️ – Modular, similar to PyTorch Lightning.
+- **[Haiku](https://github.com/deepmind/dm-haiku)** 🏔️ – From DeepMind, scope-based structure.
+- **[Objax](https://github.com/google/objax)** 🎯 – Object-oriented approach for ML in production.
+- **[Equinox](https://github.com/patrick-kidger/equinox)** 🌱 – Functional models, without scopes.
+
+### **Optimization and Mathematics**
+- **[Optax](https://github.com/deepmind/optax)** 🛠️ – Advanced optimization compatible with Flax and Haiku.
+- **[Chex](https://github.com/deepmind/chex)** ✅ – Debugging and testing tools.
+
+### **Reinforcement Learning and Graph Networks**
+- **[RLax](https://github.com/deepmind/rlax)** 🏆 – RL algorithms compatible with JAX.
+- **[Jraph](https://github.com/deepmind/jraph)** 🔗 – Graph neural networks (GNNs) in JAX.
+
+### **Integrations and Additional Tools**
+- **XLA** 🚀 – Just-In-Time compilation to accelerate execution on GPU/TPU.
+- **`functools.partial()`** 🛠️ – Modularity and advanced functionality.
+
+## 💡 Which to Choose?
+- **For Deep Learning** → Flax or Haiku. 🧠
+- **For Advanced Optimization** → Optax. 🔧
+- **For Reinforcement Learning** → RLax. 🏅
+- **For Graph Neural Networks** → Jraph. 🧬
+- **For Debugging and Testing** → Chex. 🛠️
+
+
+# Example
+## Simple Optimization with JAX
+#### The code for the example is in the file [`ejemplo.py`](https://github.com/DavidMoCe/what_is_jax/blob/main/optimizaci%C3%B3n_simple_con_jax.py)
+Let's compute the minimum of a simple function, such as the **quadratic function** \( f(x) = x^2 + 3x + 2 \).
+
+1. **Define the function**: We create the function whose derivative we want to compute. 📝
+2. **Automatic Differentiation**: We use `jax.grad()` to compute the derivative of the function. 📐
+3. **Optimization**: We use the derivative to perform a simple optimization (gradient descent). ⬇️
+
+## Explanation:
+- **Defining the function**:  
+  \( f(x) = x^2 + 3x + 2 \) is a simple quadratic function.
+
+- **Calculating the derivative**:  
+  `jax.grad(func)` gives us the derivative of the function,  
+  \( f'(x) = 2x + 3 \).
+
+- **Optimization**:  
+  We use **gradient descent**: we take the derivative value and use it to adjust the value of \( x \) in each iteration to minimize the function.
+
+## Expected Output:
+
+The output will show how the value of \( x \) changes with each iteration until it converges to the minimum of the function. The minimum of the function \( f(x) \) es \( x = -1.5 \).
+
+
+# References
+## Information on JAX
+- [https://eiposgrados.com/blog-python/jax-machine-learning/](https://eiposgrados.com/blog-python/jax-machine-learning/)
+- [https://es.eitca.org/inteligencia-artificial/eitc-ai-gcml-google-nube-aprendizaje-autom%C3%A1tico/plataforma-google-cloud-ai/introducci%C3%B3n-a-jax/revisi%C3%B3n-de-examen-introducci%C3%B3n-a-jax/%C2%BFCu%C3%A1les-son-las-caracter%C3%ADsticas-de-jax-que-permiten-el-m%C3%A1ximo-rendimiento-en-el-entorno-de-python%3F/](https://es.eitca.org/inteligencia-artificial/eitc-ai-gcml-google-nube-aprendizaje-autom%C3%A1tico/plataforma-google-cloud-ai/introducci%C3%B3n-a-jax/revisi%C3%B3n-de-examen-introducci%C3%B3n-a-jax/%C2%BFCu%C3%A1les-son-las-caracter%C3%ADsticas-de-jax-que-permiten-el-m%C3%A1ximo-rendimiento-en-el-entorno-de-python%3F/)
+
+## TensorFlow and PyTorch
+- [https://www.tensorflow.org/?hl=es-419](https://www.tensorflow.org/?hl=es-419)
+- [https://pytorch.org/](https://pytorch.org/)
+
+## Flax and Haiku
+- [https://flax.readthedocs.io/en/latest/](https://flax.readthedocs.io/en/latest/)
+- [https://dm-haiku.readthedocs.io/en/latest/](https://dm-haiku.readthedocs.io/en/latest/)
+
+## Comparison between JAX, TensorFlow, and PyTorch
+- [https://www.computerworld.es/article/2115282/tensorflow-pytorch-y-jax-los-principales-marcos-de-deep-learning.html](https://www.computerworld.es/article/2115282/tensorflow-pytorch-y-jax-los-principales-marcos-de-deep-learning.html)
+
+## Collecting and Structuring Information
+- [https://chatgpt.com/](https://chatgpt.com/)
+
+# 📃 License
+This project is under the MIT License. See the [`LICENSE`](https://github.com/DavidMoCe/what_is_jax/blob/main/LICENSE.TXT) file for more details.
+
+---
+
+## Español ES
+
 # ¿Qué es JAX?
 **JAX** es una nueva biblioteca de Python de aprendizaje automático de Google, diseñada para la computación numérica de alto rendimiento, especialmente en aprendizaje automático y optimización. Es una alternativa mejorada a NumPy aunque su API para funciones numéricas se basa en esta.
 
@@ -113,3 +244,7 @@ La salida te mostrará cómo el valor de \( x \) cambia en cada iteración hasta
 
 ## Recopilar y estructurar la información
 - [https://chatgpt.com/](https://chatgpt.com/)
+
+# 📃 Licencia
+Este proyecto está bajo la licencia MIT. Consulta el archivo [`LICENSE`](https://github.com/DavidMoCe/what_is_jax/blob/main/LICENSE.TXT) para más detalles.
+
