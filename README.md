@@ -72,7 +72,7 @@ JAX, TensorFlow y PyTorch son bibliotecas populares para cómputo numérico y ap
 
 # Ejemplo
 ## Optimización simple con JAX
-#### El código del ejemplo esta en el archivo `ejemplo.py`
+#### El código del ejemplo esta en el archivo [`ejemplo.py`](https://github.com/DavidMoCe/what_is_jax/blob/main/optimizaci%C3%B3n_simple_con_jax.py)
 Vamos a calcular el mínimo de una función simple, como la **función cuadrática** \( f(x) = x^2 + 3x + 2 \).
 
 1. **Definir la función**: Creamos la función cuya derivada queremos calcular. 📝
