@@ -102,6 +102,43 @@ Let's compute the minimum of a simple function, such as the **quadratic function
 
 The output will show how the value of \( x \) changes with each iteration until it converges to the minimum of the function. The minimum of the function \( f(x) \) es \( x = -1.5 \).
 
+# Example 2
+## Wine Classification with JAX
+#### The code for the example is in the file [`jax_calidad_del_vino.py`](https://github.com/DavidMoCe/what_is_jax/blob/main/jax_calidad_del_vino.py)
+This project implements a neural network in JAX to classify wine quality using the `wine` dataset from `sklearn`.
+
+## Main Steps:
+1. **Data Loading and Preprocessing** 📊
+   - The dataset is loaded using `sklearn.datasets.load_wine()`.
+   - Data is normalized with `StandardScaler` to improve model performance.
+   
+2. **Parameter Initialization** 🎛️
+   - We generate random weights and biases using `jax.random.normal`.
+   - These are stored in a dictionary for use in the neural network.
+
+3. **Model Definition** 🧠
+   - A neural network with three layers is implemented:
+     - Input layer: 16 neurons with ReLU activation.
+     - Hidden layer: 8 neurons with ReLU activation.
+     - Output layer: 3 neurons with Softmax activation.
+   - `jax.numpy.dot` is used for matrix multiplications.
+
+4. **Loss Function and Optimization** 🔧
+   - `jax.nn.one_hot` is used to convert labels into vectors.
+   - Cross-entropy is calculated to evaluate model error.
+   - The `optax.adam` optimizer is used with a learning rate of `0.001`.
+
+5. **Model Training** 🚀
+   - Weights are updated using `grad(loss_fn)`.
+   - The model is trained for 200 epochs.
+   - Loss is displayed every 10 epochs.
+
+6. **Model Evaluation** 📈
+   - Accuracy is computed on the test set using `accuracy_score`.
+   - A confusion matrix is visualized using `ConfusionMatrixDisplay`.
+
+## Expected Output:
+The trained model classifies wines with an accuracy above 90% on the test set.
 
 # References
 ## Information on JAX
@@ -227,36 +264,40 @@ La salida te mostrará cómo el valor de \( x \) cambia en cada iteración hasta
 
 # Ejemplo 2
 ## Clasificación de Vinos con JAX
-#### El código del ejemplo esta en el archivo [`ejemplo2.py`]()
+#### El código del ejemplo esta en el archivo [`jax_calidad_del_vino.py`](https://github.com/DavidMoCe/what_is_jax/blob/main/jax_calidad_del_vino.py)
 Este proyecto implementa una red neuronal en JAX para clasificar la calidad del vino utilizando el conjunto de datos `wine` de `sklearn`.
 
 ## Pasos que realiza el proyecto:
 1. Carga y preprocesamiento de datos 📊
-  - Se carga el dataset de `sklearn.datasets.load_wine()`.
-  - Se normalizan los datos con `StandardScaler` para mejorar el rendimiento del modelo.
+    - Se carga el dataset de `sklearn.datasets.load_wine()`.
+    - Se normalizan los datos con `StandardScaler` para mejorar el rendimiento del modelo.
+
 2. Inicialización de parámetros 🎛️
-  - Se generan pesos y sesgos aleatorios usando `jax.random.normal`.
-  - Se almacenan en un diccionario para su uso en la red neuronal.
+    - Se generan pesos y sesgos aleatorios usando `jax.random.normal`.
+    - Se almacenan en un diccionario para su uso en la red neuronal.
+
 3. Definición del modelo 🧠
-  - Se implementa una red neuronal con tres capas:
-     - Capa de entrada: 16 neuronas y activación ReLU.
-     - Capa oculta: 8 neuronas y activación ReLU.
-     - Capa de salida: 3 neuronas con activación Softmax.
-  - Se usa `jax.numpy.dot` para las multiplicaciones de matrices.
+    - Se implementa una red neuronal con tres capas:
+       - Capa de entrada: 16 neuronas y activación ReLU.
+       - Capa oculta: 8 neuronas y activación ReLU.
+       - Capa de salida: 3 neuronas con activación Softmax.
+    - Se usa `jax.numpy.dot` para las multiplicaciones de matrices.
+
 4. Función de pérdida y optimización 🔧
-  - Se usa `jax.nn.one_hot` para convertir etiquetas en vectores.
-  - Se calcula la entropía cruzada para evaluar el error del modelo.
-  - Se usa el optimizador `optax.adam` con una tasa de aprendizaje de `0.001`.
+    - Se usa `jax.nn.one_hot` para convertir etiquetas en vectores.
+    - Se calcula la entropía cruzada para evaluar el error del modelo.
+    - Se usa el optimizador `optax.adam` con una tasa de aprendizaje de `0.001`.
+
 5. Entrenamiento del modelo 🚀
-  - Se actualizan los pesos usando `grad(loss_fn)`.
-  - Se entrena durante 200 épocas.
-  - Se muestra la pérdida cada 10 épocas.
+    - Se actualizan los pesos usando `grad(loss_fn)`.
+    - Se entrena durante 200 épocas.
+    - Se muestra la pérdida cada 10 épocas.
+
 6. Evaluación del modelo 📈
-  - Se calcula la precisión en el conjunto de prueba con `accuracy_score`.
-  - Se visualiza la matriz de confusión con `ConfusionMatrixDisplay`.
+    - Se calcula la precisión en el conjunto de prueba con `accuracy_score`.
+    - Se visualiza la matriz de confusión con `ConfusionMatrixDisplay`.
 
 ## Resultado esperado:
-
 El modelo entrenado clasifica los vinos con una precisión superior al 90% en el conjunto de prueba.
 
 # Bibliografía
