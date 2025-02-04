@@ -225,6 +225,39 @@ Vamos a calcular el mínimo de una función simple, como la **función cuadráti
 
 La salida te mostrará cómo el valor de \( x \) cambia en cada iteración hasta converger al mínimo de la función. El mínimo de la función \( f(x) \) es \( x = -1.5 \).
 
+# Ejemplo 2
+## Clasificación de Vinos con JAX
+#### El código del ejemplo esta en el archivo [`ejemplo2.py`]()
+Este proyecto implementa una red neuronal en JAX para clasificar la calidad del vino utilizando el conjunto de datos `wine` de `sklearn`.
+
+## Pasos que realiza el proyecto:
+1. Carga y preprocesamiento de datos 📊
+  - Se carga el dataset de `sklearn.datasets.load_wine()`.
+  - Se normalizan los datos con `StandardScaler` para mejorar el rendimiento del modelo.
+2. Inicialización de parámetros 🎛️
+  - Se generan pesos y sesgos aleatorios usando `jax.random.normal`.
+  - Se almacenan en un diccionario para su uso en la red neuronal.
+3. Definición del modelo 🧠
+  - Se implementa una red neuronal con tres capas:
+     - Capa de entrada: 16 neuronas y activación ReLU.
+     - Capa oculta: 8 neuronas y activación ReLU.
+     - Capa de salida: 3 neuronas con activación Softmax.
+  - Se usa `jax.numpy.dot` para las multiplicaciones de matrices.
+4. Función de pérdida y optimización 🔧
+  - Se usa `jax.nn.one_hot` para convertir etiquetas en vectores.
+  - Se calcula la entropía cruzada para evaluar el error del modelo.
+  - Se usa el optimizador `optax.adam` con una tasa de aprendizaje de `0.001`.
+5. Entrenamiento del modelo 🚀
+  - Se actualizan los pesos usando `grad(loss_fn)`.
+  - Se entrena durante 200 épocas.
+  - Se muestra la pérdida cada 10 épocas.
+6. Evaluación del modelo 📈
+  - Se calcula la precisión en el conjunto de prueba con `accuracy_score`.
+  - Se visualiza la matriz de confusión con `ConfusionMatrixDisplay`.
+
+## Resultado esperado:
+
+El modelo entrenado clasifica los vinos con una precisión superior al 90% en el conjunto de prueba.
 
 # Bibliografía
 ## Información sobre JAX
